@@ -1,6 +1,6 @@
 /** @jsxImportSource @emotion/react */
 import React, { useEffect } from "react";
-import useOrderBook from "./orderBook";
+import { useOrderBook } from "./useOrderBook";
 
 export function OrderBook({ children, currency, ...restProps }) {
   const { connectOrderBook } = useOrderBook();

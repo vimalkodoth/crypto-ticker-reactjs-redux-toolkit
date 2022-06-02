@@ -1,6 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { OrderBook } from "./components/OrderBook";
-import useOrderBook from "./components/OrderBook/orderBook";
+import { useOrderBook } from "./components/OrderBook";
 import {
   buyPriceStyles,
   orderBookStyles,
@@ -8,12 +8,18 @@ import {
 } from "./OrderBookView.styles";
 
 function OrderBookView() {
-  const { orders } = useOrderBook();
+  const { orders, getAsksLimitSorted, getBidsLimitSorted } = useOrderBook();
+  const [ordersLimited, setOrdersLimited] = useState(null);
+
   const currencyPair = "BTC/USDT";
 
   useEffect(() => {
-    console.log(orders);
+    const asks = getAsksLimitSorted(orders, 18);
+    const bids = getBidsLimitSorted(orders, 18);
+    setOrdersLimited({ asks, bids });
   }, [orders]);
+
+  if (!ordersLimited) return <div>Loading ...</div>;
 
   return (
     <OrderBook currency={currencyPair} css={orderBookStyles}>
@@ -26,12 +32,8 @@ function OrderBookView() {
             <OrderBook.Heading>Amount (BTC)</OrderBook.Heading>
           </OrderBook.Row>
           {(() => {
-            const { asks = [] } = orders;
-            const AsksLimit = asks.slice(0, 18);
-            AsksLimit.sort(([p1], [p2]) => {
-              return p2 - p1;
-            });
-            return AsksLimit.map((ask) => {
+            const { asks } = ordersLimited;
+            return asks.map((ask) => {
               const [price, amount] = ask;
               console.log(price, amount);
               return (
@@ -48,13 +50,9 @@ function OrderBookView() {
         <OrderBook.Body>
           <div>Buy</div>
           {(() => {
-            const { bids = [] } = orders;
-            const AsksLimit = bids.slice(0, 18);
-            AsksLimit.sort(([p1], [p2]) => {
-              return p2 - p1;
-            });
-            return AsksLimit.map((ask) => {
-              const [price, amount] = ask;
+            const { bids } = ordersLimited;
+            return bids.map((buy) => {
+              const [price, amount] = buy;
               console.log(price, amount);
               return (
                 <OrderBook.Row>
