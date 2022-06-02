@@ -18,3 +18,8 @@ export const sellPriceStyles = css`
 export const buyPriceStyles = css`
   color: #21c198;
 `;
+
+export const titleStyles = css`
+  padding: 0.5em;
+  text-align: left;
+`;

@@ -6,9 +6,9 @@ import OrderBookView from "./OrderBookView";
 function App() {
   return (
     <div className="App">
-        <Provider store={store}>
-          <OrderBookView />
-        </Provider>
+      <Provider store={store}>
+        <OrderBookView title="OrderBook" />
+      </Provider>
     </div>
   );
 }
