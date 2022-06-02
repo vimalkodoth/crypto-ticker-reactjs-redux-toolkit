@@ -12,7 +12,7 @@ export function useOrderBook() {
     dispatch(connect(currencyPair));
   };
 
-  const getLimitSorted = (orders, limit) => {
+  const getLimitOrdersSorted = (orders, limit) => {
     const slicedOrders = orders.slice(0, limit);
     slicedOrders.sort(([p1], [p2]) => {
       return p2 - p1;
@@ -20,5 +20,5 @@ export function useOrderBook() {
     return slicedOrders;
   };
 
-  return { connectOrderBook, getLimitSorted, orders };
+  return { connectOrderBook, getLimitOrdersSorted, orders };
 }
