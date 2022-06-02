@@ -12,23 +12,13 @@ export function useOrderBook() {
     dispatch(connect(currencyPair));
   };
 
-  const getAsksLimitSorted = (orders, limit) => {
-    const { asks = [] } = orders;
-    const AsksLimit = asks.slice(0, limit);
-    AsksLimit.sort(([p1], [p2]) => {
+  const getLimitSorted = (orders, limit) => {
+    const slicedOrders = orders.slice(0, limit);
+    slicedOrders.sort(([p1], [p2]) => {
       return p2 - p1;
     });
-    return AsksLimit;
+    return slicedOrders;
   };
 
-  const getBidsLimitSorted = (orders, limit) => {
-    const { bids = [] } = orders;
-    const BidsLimit = bids.slice(0, limit);
-    BidsLimit.sort(([p1], [p2]) => {
-      return p2 - p1;
-    });
-    return BidsLimit;
-  };
-
-  return { connectOrderBook, getBidsLimitSorted, getAsksLimitSorted, orders };
+  return { connectOrderBook, getLimitSorted, orders };
 }

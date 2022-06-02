@@ -8,14 +8,15 @@ import {
 } from "./OrderBookView.styles";
 
 function OrderBookView() {
-  const { orders, getAsksLimitSorted, getBidsLimitSorted } = useOrderBook();
+  const { orders, getLimitSorted } = useOrderBook();
   const [ordersLimited, setOrdersLimited] = useState(null);
 
   const currencyPair = "BTC/USDT";
 
   useEffect(() => {
-    const asks = getAsksLimitSorted(orders, 18);
-    const bids = getBidsLimitSorted(orders, 18);
+    const { asks, bids } = orders;
+    const asks = getLimitSorted(asks, 18);
+    const bids = getLimitSorted(bids, 18);
     setOrdersLimited({ asks, bids });
   }, [orders]);
 
