@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Getting Started with Crypto Ticker ( Web Socket )
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project uses CLEAN architecture + ReactJS/Redux-Toolkit to build a simple socket crypto ticker app.
+
+Components:
+
+OrderBook component renders BUY and SELL prices for crypto currency pair ( eg: BTC/USDT ) and renders the data as and when received through web socket.
 
 ## Available Scripts
 
