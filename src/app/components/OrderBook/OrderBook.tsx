@@ -9,7 +9,7 @@ export function OrderBook({ children, currency, ...restProps }) {
     connectOrderBook(currency);
   }, []);
 
-  return <div {...restProps}>{children}</div>;
+  return <div {...restProps} data-testid="orderbook">{children}</div>;
 }
 
 OrderBook.Title = function ({ children }) {
