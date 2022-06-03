@@ -1,4 +1,4 @@
-import { Orderbook } from "../entities/orderbook";
+import { Orderbook } from "core/entities/orderbook";
 
 export interface StateType {
   orders: Orderbook;

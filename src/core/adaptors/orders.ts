@@ -1,5 +1,5 @@
 import { ORDERBOOK_LIMITED, WS_BASE } from "../constants";
-import { Orderbook } from "../entities/orderbook";
+import { Orderbook } from "core/entities/orderbook";
 import { ConnectInteractor } from "../useCases";
 import { StateType } from "./state";
 

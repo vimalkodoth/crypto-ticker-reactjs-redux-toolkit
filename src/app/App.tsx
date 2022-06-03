@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { store } from "../core/frameworks";
+import { store } from "core/frameworks";
 import "./App.css";
 import OrderBookView from "./OrderBookView";
 function App() {

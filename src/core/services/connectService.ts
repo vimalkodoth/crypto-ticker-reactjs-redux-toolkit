@@ -1,7 +1,6 @@
 import { IConnectService } from "../useCases";
 import { connect, Socket } from "socket.io-client";
 import { WS_BASE } from "../constants";
-import { Orderbook } from "../entities/orderbook";
 
 export const initialize = (pair: string, url: string) => {
   const socket: Socket = connect(url, {

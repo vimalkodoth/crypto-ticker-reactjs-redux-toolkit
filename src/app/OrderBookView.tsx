@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { useEffect, useState } from "react";
-import { OrderBook } from "./components/OrderBook";
-import { useOrderBook } from "./components/OrderBook";
+import { OrderBook } from "app/components/OrderBook";
+import { useOrderBook } from "app/components/OrderBook";
 import {
   buyPriceStyles,
   orderBookStyles,

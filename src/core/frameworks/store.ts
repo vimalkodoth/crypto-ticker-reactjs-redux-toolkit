@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import  OrdersReducer from '../adaptors/orders'
+import  OrdersReducer from 'core/adaptors/orders'
 
 export const store = configureStore({
   reducer: { orders : OrdersReducer },

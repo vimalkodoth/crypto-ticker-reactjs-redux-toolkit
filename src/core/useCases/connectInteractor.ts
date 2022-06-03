@@ -1,4 +1,4 @@
-import { ConnectService } from "../services/connectService";
+import { ConnectService } from "core/services/connectService";
 
 interface IConnect {
   initialize: (pair: string, url?: string) => void;
